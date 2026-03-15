@@ -202,7 +202,7 @@ Condition: Pre-Owned`;
   setHighPrice(high);
 }
 
-Description:
+const description = `Description:
 Great pre-owned condition.
 Item: ${cleanItem}
 Brand: ${detectedBrand || "Unknown"}
@@ -219,8 +219,8 @@ Platforms:
 ✔ eBay
 ✔ Mercari
 ✔ Poshmark
-✔ Depop`;
-
+✔ Depop
+`;
     setResult(description);
     setPrice("$39.99");
     setQuickPrice("$29.99");
