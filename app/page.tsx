@@ -135,12 +135,72 @@ export default function Home() {
   }, [item]);
 
   function generateListing() {
-    const cleanItem = item.trim();
-    if (!cleanItem) return;
+  const cleanItem = item.trim();
+  if (!cleanItem) return;
 
-    const title = seoTitle;
+  const ebayTitle = `${cleanItem} Mens Classic Fit`;
+  const poshTitle = cleanItem;
+  const depopTitle = `Vintage ${cleanItem}`;
 
-    const description = `Title: ${title}
+  const description = `EBAY TITLE:
+${ebayTitle}
+
+POSHMARK TITLE:
+${poshTitle}
+
+DEPOP TITLE:
+${depopTitle}
+
+Description:
+Great pre-owned condition.
+
+Brand: ${detectedBrand}
+Category: ${detectedCategory}
+Color: ${detectedColor}
+Style: ${detectedStyle}
+Size: ${detectedSize}
+
+Carefully inspected and ready to ship.
+
+Ships fast from the USA.
+
+ITEM SPECIFICS
+
+Brand: ${detectedBrand}
+Type: ${detectedCategory}
+Size: ${detectedSize}
+Color: ${detectedColor}
+Department: Men
+Condition: Pre-Owned`;
+
+  setResult(description);
+
+  let recommended = "$29.99";
+  let quick = "$19.99";
+  let high = "$39.99";
+
+  if (detectedBrand.includes("Polo")) {
+    recommended = "$39.99";
+    quick = "$29.99";
+    high = "$49.99";
+  }
+
+  if (detectedBrand.includes("Nike")) {
+    recommended = "$44.99";
+    quick = "$34.99";
+    high = "$59.99";
+  }
+
+  if (detectedBrand.includes("Levi")) {
+    recommended = "$34.99";
+    quick = "$24.99";
+    high = "$45.99";
+  }
+
+  setPrice(recommended);
+  setQuickPrice(quick);
+  setHighPrice(high);
+}
 
 Description:
 Great pre-owned condition.
